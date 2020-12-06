@@ -1,16 +1,16 @@
+def pig_latin(text):
+  say = ""
+  # Separate the text into words
+  words = text.split()
+  new_words=[]
+  for word in words:
+    # Create the pig latin word and add it to the list
+    i=word[1:]+word[0]+"ay"
 
-filenames = ["program.c", "stdio.hpp", "sample.hpp", "a.out", "math.hpp", "hpp.out"]
-# Generate newfilenames as a list containing the new filenames
-# using as many lines of code as your chosen method requires.
-newfilenames=[]
-for x in filenames:
-	if x[-4:]==".hpp":
-		w=x[0:len(x)-2]
-		newfilenames.append(w)
-	else:
-		newfilenames.append(x)
-
+    new_words.append(i)
+    z=" ".join(new_words)
+    # Turn the list back into a phrase
+  return z
 		
-
-print(newfilenames) 
-# Should be ["program.c", "stdio.h", "sample.h", "a.out", "math.h", "hpp.out"]
+print(pig_latin("hello how are you")) # Should be "ellohay owhay reaay ouyay"
+print(pig_latin("programming in python is fun")) # Should be "rogrammingpay niay ythonpay siay unfay"
