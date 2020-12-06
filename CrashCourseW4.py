@@ -1,17 +1,12 @@
-def email_list(domains):
-	emails = []
-	i=0
+def groups_per_user(group_dictionary):
+    user_groups = {}
+    for group, users in group_dictionary.items():
+        for user in users:
+            if user not in user_groups:
+                user_groups[user] = []
+            user_groups[user].append(group)
+    return user_groups
 
-
-	for key in domains: 
-		users=domains[key]
-		for user in users:
-			
-			emails.append(user+"@"+key)
-			
-
-
-	return(emails)
-
-print(email_list({"gmail.com": ["clark.kent", "diana.prince", "peter.parker"], "yahoo.com": ["barbara.gordon", "jean.grey"], "hotmail.com": ["bruce.wayne"]}))
-
+print(groups_per_user({"local": ["admin", "userA"],
+		"public":  ["admin", "userB"],
+		"administrator": ["admin"] }))
