@@ -1,14 +1,17 @@
-def guest_list(guests):
-	for x in guests:
-		
-		print("{} is {} years old and works as {}".format(x[0],x[1],x[2]))
+def email_list(domains):
+	emails = []
+	i=0
 
-guest_list([('Ken', 30, "Chef"), ("Pat", 35, 'Lawyer'), ('Amanda', 25, "Engineer")])
 
-#Click Run to submit code
-"""
-Output should match:
-Ken is 30 years old and works as Chef
-Pat is 35 years old and works as Lawyer
-Amanda is 25 years old and works as Engineer
-"""
+	for key in domains: 
+		users=domains[key]
+		for user in users:
+			
+			emails.append(user+"@"+key)
+			
+
+
+	return(emails)
+
+print(email_list({"gmail.com": ["clark.kent", "diana.prince", "peter.parker"], "yahoo.com": ["barbara.gordon", "jean.grey"], "hotmail.com": ["bruce.wayne"]}))
+
