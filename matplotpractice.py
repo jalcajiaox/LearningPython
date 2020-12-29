@@ -1,42 +1,30 @@
 import codecademylib
 from matplotlib import pyplot as plt
 
-months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+drinks = ["cappuccino", "latte", "chai", "americano", "mocha", "espresso"]
+sales1 =  [91, 76, 56, 66, 52, 27]
+sales2 = [65, 82, 36, 68, 38, 40]
 
-visits_per_month = [9695, 7909, 10831, 12942, 12495, 16794, 14161, 12762, 12777, 12439, 10309, 8724]
+#Paste the x_values code here
+n = 1  # This is our first dataset (out of 2)
+t = 2 # Number of datasets
+d = 6 # Number of sets of bars
+w = 0.8 # Width of each bar
 
-# numbers of limes of different species sold each month
-key_limes_per_month = [92.0, 109.0, 124.0, 70.0, 101.0, 79.0, 106.0, 101.0, 103.0, 90.0, 102.0, 106.0]
-persian_limes_per_month = [67.0, 51.0, 57.0, 54.0, 83.0, 90.0, 52.0, 63.0, 51.0, 44.0, 64.0, 78.0]
-blood_limes_per_month = [75.0, 75.0, 76.0, 71.0, 74.0, 77.0, 69.0, 80.0, 63.0, 69.0, 73.0, 82.0]
+store1_x = [t*element + w*n for element
+             in range(d)]
+
+plt.bar(store1_x, sales1)
+
+n = 2  # This is our second dataset (out of 2)
+t = 2 # Number of datasets
+d = 6 # Number of sets of bars
+w = 0.8 # Width of each bar
+store2_x = [t*element + w*n for element
+             in range(d)]
+
+plt.bar(store2_x, sales2)
 
 
-# create your figure here
-plt.figure(figsize=(12,8))
 
-x_values=range(len(months))
-
-#Grafico 1 
-ax1=plt.subplot(1,2,1)
-
-plt.plot(x_values,visits_per_month,marker="o")
-plt.legend(["hola"],loc=6)
-plt.xlabel("no")
-plt.ylabel("tiempo")
-ax1.set_xticks(x_values)
-plt.title("Grafica 1")
-ax1.set_xticklabels(months)
-
-#Grafico 2 
-ax2=plt.subplot(1,2,2)
-plt.plot(x_values,key_limes_per_month,marker="o",color="red")
-plt.plot(x_values,persian_limes_per_month,marker="o",color="pink")
-plt.plot(x_values,blood_limes_per_month,marker="o",color="yellow")
-plt.legend(["Grafica 1","Grafica 2","Grafica 3"])
-ax2.set_xticks(x_values)
-ax2.set_xticklabels(months)
-plt.title("Grafica 2")
-
-plt.savefig("hola.png")
 plt.show()
-
